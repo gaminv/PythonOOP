@@ -49,6 +49,19 @@ class Human:
         ...
 
 
+    def introduce(self) -> str:
+        """
+        Возвращает строку с приветствием и именем человека.
+
+        :return: Приветствие и имя человека
+
+        Примеры:
+        >>> person = Human("Vadim", 18)
+        >>> person.introduce()
+        'Привет, меня зовут Vadim'
+        """
+        return f"Привет, меня зовут {self.name}"
+
 class Car:
     def __init__(self, year: int, mileage: float):
         """
@@ -102,6 +115,20 @@ class Car:
         """
         ...
 
+    def is_older_than(self, year: int) -> bool:
+        """
+        Проверка, является ли автомобиль старше указанного года.
+
+        :param year: Год для сравнения
+
+        :return: True, если автомобиль старше указанного года, иначе False
+
+        Примеры:
+        >>> car = Car(2020, 15000.5)
+        >>> car.is_older_than(2015)
+        False
+        """
+        return self.year < year
 
 class Book:
     def __init__(self, title: str, author: str, year: int):
@@ -152,11 +179,23 @@ class Book:
         :return: Информация о книге
 
         Примеры:
-        >>> book = Book("Python Crash Course", "Eric Matthes", 2015)
+        >>> book = Book("Python", "Vadim Gamin", 2023)
         >>> book.get_book_info()
         """
         ...
 
+    def is_recent(self) -> bool:
+        """
+        Проверка, является ли книга недавно выпущенной.
+
+        :return: True, если книга выпущена в течение последних 5 лет, иначе False
+
+        Примеры:
+        >>> book = Book("Python", "Vadim Gamin", 2017)
+        >>> book.is_recent()
+        False
+        """
+        return 2023 - self.year <= 5
 
 if __name__ == "__main__":
     doctest.testmod()  # тестирование примеров, которые находятся в документации
